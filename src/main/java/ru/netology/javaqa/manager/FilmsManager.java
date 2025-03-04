@@ -4,6 +4,15 @@ import ru.netology.javaqa.domain.FilmItem;
 
 public class FilmsManager {
     private FilmItem[] films = new FilmItem[0];
+    private int limit;
+
+    public FilmsManager() {
+        this.limit = 5;
+    }
+
+    public FilmsManager(int limit) {
+        this.limit = limit;
+    }
 
     public void save(FilmItem film) {
         FilmItem[] tmp = new FilmItem[films.length + 1];
@@ -19,14 +28,6 @@ public class FilmsManager {
     }
 
     public FilmItem[] findLast() {
-        FilmItem[] tmp = new FilmItem[5];
-        for (int i = 0; i < 5; i++) {
-            tmp[i] = films[films.length - 1 - i];
-        }
-        return tmp;
-    }
-
-    public FilmItem[] findLast(int limit) {
         if (limit < 1) {
             return films = new FilmItem[0];
         }
